@@ -5262,6 +5262,11 @@ react-native-safe-area-context@3.1.9:
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-3.1.9.tgz#48864ea976b0fa57142a2cc523e1fd3314e7247e"
   integrity sha512-wmcGbdyE/vBSL5IjDPReoJUEqxkZsywZw5gPwsVUV1NBpw5eTIdnL6Y0uNKHE25Z661moxPHQz6kwAkYQyorxA==
 
+react-native-tts@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-tts/-/react-native-tts-3.2.0.tgz#6c271c6809c164f86699b4b6c420f7bae0f68b4e"
+  integrity sha512-z8p9OfWd9N1QTs3EcZCt05iqNFs9qZ9s743Pt1xqqVlL+vE4ju2pybNE/pjxA2L+RvuD3L0wOdNvXcCNP5qi2g==
+
 react-native-vector-icons@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-8.0.0.tgz#deb8b344ff68ea67f4659c8de493fef8a9e717d2"

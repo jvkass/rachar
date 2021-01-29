@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component ,useState} from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import {Share, StyleSheet, Text, View, TextInput } from 'react-native';
 import { Appbar, IconButton } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -10,21 +10,28 @@ export default function App() {
   const [valor1, setvalor1] = useState(0);
   const [valor2, setvalor2] = useState(0);
 
-//  function calcular(){
-//    this.setState({money:(this.state.valor/this.state.valor2)})
-//  }
-
   
-
- // alterarValor = (valor) => {
- // this.setState({valor:valor},this.calcular());
- //   
- // }
-//
- // alterarPessoas = (valor2) => {
- //   this.setState({valor2:valor2},this.calcular());
- //    
- // }
+    const onShare = async () => {
+      try {
+        const result = await Share.share({
+          message:
+            ('O valor é {valor1/valor2}'),
+        });
+        if (result.action === Share.sharedAction) {
+          if (result.activityType) {
+            // shared with activity type of result.activityType
+          } else {
+            // shared
+          }
+        } else if (result.action === Share.dismissedAction) {
+          // dismissed
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+  };
+  
+ 
  
   return (
     <View style={styles.background}>
@@ -61,14 +68,14 @@ export default function App() {
           icon="share-variant"
           color="white"
           size={50}
-          onPress={() => console.log('Compartilhou')}
+          onPress={onShare}
         />
 
         <IconButton
           icon="volume-high"
           color="white"
           size={50}
-          onPress={() => console.log('Audio')}
+          /*onPress={Tts.speak('O valor é ')}*/
         />
 
         <StatusBar style="auto" />

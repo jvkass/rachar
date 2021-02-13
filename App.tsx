@@ -3,10 +3,12 @@ import React, { Component ,useState} from 'react';
 import {Share, StyleSheet, Text, View, TextInput } from 'react-native';
 import { Appbar, IconButton } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
+import { translate } from './src/locales';
 
 export default function App() { 
   
+  const _linguagem = () => console.log('Escolhendo a linguagem');
+
   const [valor1, setvalor1] = useState(0);
   const [valor2, setvalor2] = useState(0);
 
@@ -31,22 +33,20 @@ export default function App() {
       }
   };
   
- 
+
  
   return (
     <View style={styles.background}>
       <Appbar.Header style={styles.header}>
-        <Appbar.Content title="Vamos Rachar !" />
+        <Appbar.Content title={translate('VamosRachar')} />
+        <Appbar.Action icon="dots-vertical" onPress={_linguagem}/>
       </Appbar.Header>
       <View style={styles.container}>
-        <Text style={styles.text}>Vamos</Text>
-
-        <Text style={styles.text}>Rachar!</Text>
-
+        <Text style={styles.text}>{translate('Vamos')} {translate('Rachar')}!</Text>
         <Icon name="money" size={50} color="#FFFFFF" />
         <TextInput
           keyboardType={'numeric'}
-          style={{ height: 50, width: 200, borderColor: 'white', color: 'white', borderWidth: 1 }}
+          style={styles.textInput}
           onChangeText={(valor1) => { setvalor1(valor1) }}
 
           value={valor1}
@@ -56,7 +56,7 @@ export default function App() {
         <Icon name="users" size={50} color="#FFFFFF" />
         <TextInput
           keyboardType={'numeric'}
-          style={{ height: 50, width: 200, borderColor: 'white', color: 'white', borderWidth: 1 }}
+          style={styles.textInput}
           onChangeText={(valor2) => { setvalor2(valor2) }}
           value={valor2}
       
@@ -92,14 +92,25 @@ export default function App() {
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-
+    justifyContent: 'space-around',
+    margin: 20,
   },
   text: {
     color: '#FFFFFF',
-    fontSize: 34,
+    fontSize: 36,
+ 
+  },
+  textInput:{
+    height: 50,
+    margin: 20, 
+    width: 200, 
+    borderColor: 'white', 
+    color: 'white', 
+    borderWidth: 1 
   },
   header: {
-    backgroundColor: '#9E5ECE',
+    backgroundColor: '#9E5ECE',   
   },
-});
+    
+  }
+);
